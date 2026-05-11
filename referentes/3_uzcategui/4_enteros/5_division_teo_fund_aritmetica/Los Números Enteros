@@ -1,7 +1,0 @@
-digraph {
-	A [label="Los Números Enteros"]
-	B [label=""]
-	C [label=""]
-	A -> B
-	A -> C
-}
