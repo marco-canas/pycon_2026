@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Hola desde WASM con Pyodide</title>
+  
+  <!-- 1. Cargamos el script de Pyodide desde CDN -->
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.26.1/full/pyodide.js"></script>
+</head>
+<body>
+  <h1>Pyodide + WebAssembly</h1>
+  <p>Abre la consola de desarrollador de tu navegador (F12 o Ctrl+Shift+I) para ver la salida.</p>
+
+  <script>
+    async function main() {
+      console.log("Cargando el entorno de Python/WASM...");
+
+      // 2. Inicializamos Pyodide
+      let pyodide = await loadPyodide();
+      
+      console.log("¡Pyodide cargado correctamente!");
+
+      // 3. Ejecutamos código Python usando runPython
+      pyodide.runPython(`
+        import sys
+        print("Hola desde WASM")
+        print(f"Versión de Python ejecutándose en el navegador: {sys.version}")
+      `);
+    }
+
+    // Ejecutamos la función principal
+    main();
+  </script>
+</body>
+</html>
